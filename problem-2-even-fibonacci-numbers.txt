@@ -1,0 +1,26 @@
+function fiboEvenSum(n) {
+  let answer = 0;
+  let listOfFibo = [1, 2];
+  for(let i=0;i<(n);i++){
+    if(i < 2){
+      continue;
+    }
+   
+    listOfFibo[i] = listOfFibo[i-1] + listOfFibo[i-2];
+  }
+  
+  let newList = [];
+  listOfFibo.forEach(function(x){
+    if(x <= n){
+      newList.push(x);
+    }
+  })
+  
+  newList.forEach(function(y){
+    if(y % 2 == 0){
+      answer += y;
+    }
+  })
+  return answer;
+}
+console.log(fiboEvenSum(4000000));
